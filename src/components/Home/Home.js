@@ -19,9 +19,9 @@ const Home = () => {
             </div>
           
             {/* show suggestions at the side bar */}
-           <div className='col-span-1 border-[3px] border-l-[#025] border-y-0 border-r-0 max-h-[400px] grid'>
-              <div className='m-auto border-[3px] border-b-[#025]'>
-              <h1 className='font-mono text-[#025] font-semibold text-xl bg-[#f80]'>For You</h1>
+           <div className='col-span-1 border-[3px] border-l-[#025] border-y-0 border-r-0 max-h-[400px] grid sticky top-20'>
+              <div className='m-auto '>
+              <h1 className='font-mono text-[#f80] font-semibold text-xl bg-[#025] h-10 w-24 text-center pt-1 rounded-3xl shadow-xl tracking-tighter'>For You</h1>
             </div> 
             <div >
               {
