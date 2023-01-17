@@ -21,7 +21,7 @@ const Header = () => {
       {open ?<FontAwesomeIcon icon={faXmark}></FontAwesomeIcon> : <FontAwesomeIcon icon={faBars}></FontAwesomeIcon>}
       </div>
 
-      <ul className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-[#025] md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-[65px] ':'top-[-490px]'}`}>
+      <ul className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-[#025] md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-[65px] ':'top-[-490px]'} ${open ? 'w-[200px] ':'w-[200px]'}`}>
             <CustomLink to='/'>Home</CustomLink>
             <CustomLink to='/category'>Category</CustomLink>
             <CustomLink to='/aboutus'>Contact</CustomLink>
