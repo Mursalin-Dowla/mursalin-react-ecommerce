@@ -7,6 +7,7 @@ import AboutUs from './components/AboutUs/AboutUs';
 import NotFound from "./components/NotFound/NotFound";
 import ShowCategory from "./components/Category/ShowCategory";
 import Footer from "./components/Footer/Footer";
+import ShowDetails from "./components/ShowDetails/ShowDetails";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/home" element={<Home />}></Route>
         <Route path="/shop" element={<Home />}></Route>
+        <Route path="/shop/:id" element={<ShowDetails/>}></Route>
         <Route path="/category" element={<ShowCategory />}></Route>
         <Route path="/search" element={<Search />}></Route>
         <Route path="/aboutus" element={<AboutUs/>}></Route>
