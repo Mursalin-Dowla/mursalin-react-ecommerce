@@ -1,11 +1,34 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { MyContext } from '../../App';
 import useProducts from '../../hooks/useProducts';
 import ShowProduct from '../ShowProduct/ShowProduct';
 import ShowSuggestions from '../ShowSuggestions/ShowSuggestions';
 
+
+
 const Home = () => {
     const [products, setProducts] = useProducts();
     let suggestions = products.slice(15,19);
+
+    const myCart = useContext(MyContext);
+    const {cart, setCart} = myCart;
+
+    const handleAddToCart = (selectedItem)=>{
+      const exist = cart.find(cartItem=> cartItem.id === selectedItem.id)
+
+      if(!exist){
+          const newCart= [...cart, selectedItem]
+          setCart(newCart);
+      }
+      else{
+          alert('Item Already Added')
+      }  
+  }
+    
+//   const handleRemoveFromCart = (selectedItem) =>{
+//     const rest = cart.filter(cartItem=>cartItem._id !== selectedItem._id)
+//     setCart(rest)
+// }
     return (
         <div className='mt-20 ml-5 mr-5 grid grid-cols-4 min-h-screen'>
             {/* show products */}
@@ -13,7 +36,9 @@ const Home = () => {
             <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 justify-center gap-10'>
               {
                 products.map(product=> <ShowProduct key={product.id}
-                    product ={product} />)
+                    product ={product} 
+                    handleAddToCart={handleAddToCart}
+                    />)
               }
            </div>
             </div>

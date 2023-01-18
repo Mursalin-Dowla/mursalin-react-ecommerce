@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import CustomLink from "../../utilities/CustomLink";
 import Logo from '../../images/logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars,faSearch, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faBars,faCartShopping,faSearch, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { MyContext } from '../../App';
 
 const Header = () => {
     let [open, setOpen]=useState(false);
+    const myCart = useContext(MyContext);
+    const {cart, setCart} = myCart;
     return (
         <div className='shadow-md w-full fixed top-0 left-0'>
       <div className='md:flex items-center justify-between bg-[#025] py-4 md:px-10 px-7'>
@@ -26,6 +29,18 @@ const Header = () => {
             <CustomLink to='/category'>Category</CustomLink>
             <CustomLink to='/aboutus'>Contact</CustomLink>
             <CustomLink to='/search'>Search <FontAwesomeIcon className='text-[#F80]' icon={faSearch}></FontAwesomeIcon></CustomLink>
+            <CustomLink to='/cart'>
+              <div className='flex'>
+              <div>
+              <FontAwesomeIcon className='text-white' icon={faCartShopping}></FontAwesomeIcon>
+              </div>
+              <div className='bg-[#ff0000] text-white h-4 rounded-full w-3 text-xs ml-[2px] mb-[5px] font-bold'>
+                {cart.length}
+              </div>
+              </div>
+             
+            </CustomLink>
+      
       </ul>
       </div>
     </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import {useNavigate } from 'react-router-dom';
 
 const ShowProduct = (props) => {
+    const {handleAddToCart} = props
     const navigate = useNavigate();
     const {title , price, category, image, id} = props.product;
 
@@ -18,7 +19,7 @@ const ShowProduct = (props) => {
                 <p onClick={ShowProdDetails} className='text-[#f80] font-mono text-xl font-semibold cursor-pointer' title={title}>{title.length>20 ? title.slice(0,20)+'...' : title}</p>
                 <p><small className='font-semibold'>Price: ${price}</small></p>
                 <p><small>Category: {category}</small></p>
-                <button className='bg-[#025] text-white h-[50px] w-9/12 mt-5 rounded-md text-xl font-mono font-semibold hover:bg-[#f80] hover:text-[#025]'>
+                <button onClick={()=>handleAddToCart(props.product)} className='bg-[#025] text-white h-[50px] w-9/12 mt-5 rounded-md text-xl font-mono font-semibold hover:bg-[#f80] hover:text-[#025]'>
                     Buy
                 </button>
             </div>
